@@ -23,7 +23,9 @@ function  ContextProvider({children}){
         setCartItems(lastState => lastState.filter((img) => img.id !== id))
     }
 
-    console.log(cartItems)
+    function cleanCart(){
+        setCartItems([])
+    }
 
     function toggleFavorite(id){
         const updatePhotos = allPhotos.map(photo => {
@@ -38,7 +40,7 @@ function  ContextProvider({children}){
     }
 
     return (
-        <Context.Provider value={{allPhotos, cartItems, toggleFavorite, addCartItem, removeCartItem}}>
+        <Context.Provider value={{allPhotos, cartItems, toggleFavorite, addCartItem, removeCartItem, cleanCart}}>
             {children}
         </Context.Provider>
     )

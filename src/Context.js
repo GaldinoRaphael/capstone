@@ -20,9 +20,7 @@ function  ContextProvider({children}){
     }
 
     function removeCartItem(id){
-        setCartItems(lastState => {
-            return [...lastState.filter((img) => img.id !== id)]
-        })
+        setCartItems(lastState => lastState.filter((img) => img.id !== id))
     }
 
     console.log(cartItems)

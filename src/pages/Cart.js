@@ -31,9 +31,9 @@ function Cart() {
             <h1>Check out</h1>
             {cartItemElements}
             <p className="total-cost">Total: {totalValue(cartItems)}</p>
-            <div className="order-button" onClick={() => order()}>
+            {cartItems.length ? <div className="order-button" onClick={order}>
                 <button>{!ordering ? 'Place Order' : 'Ordering..'}</button>
-            </div>
+            </div> : <p>You have no items in your cart.</p>}
         </main>
     )
 }

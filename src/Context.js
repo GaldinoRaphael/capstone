@@ -17,15 +17,15 @@ function  ContextProvider({children}){
     }, [])
 
     function toggleFavorite(id){
-        const selectedPhoto = allPhotos.map(photo => {
+        const updatePhotos = allPhotos.map(photo => {
             if(photo.id === id){
-                photo.isFavorite = !photo.isFavorite
+               return {...photo, isFavorite: !photo.isFavorite}
             }
 
             return photo;
         });
 
-        setAllPhotos(selectedPhoto);
+        setAllPhotos(updatePhotos);
     }
 
     return (

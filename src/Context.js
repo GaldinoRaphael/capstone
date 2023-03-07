@@ -16,7 +16,7 @@ function  ContextProvider({children}){
     }, [])
 
     function addCartItem(img){
-        setCartItems([...cartItems, img]);
+        setCartItems(lastState => [...lastState, img]);
     }
 
     function toggleFavorite(id){

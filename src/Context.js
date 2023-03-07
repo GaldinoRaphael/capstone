@@ -19,6 +19,14 @@ function  ContextProvider({children}){
         setCartItems(lastState => [...lastState, img]);
     }
 
+    function removeCartItem(id){
+        setCartItems(lastState => {
+            return [...lastState.filter((img) => img.id !== id)]
+        })
+    }
+
+    console.log(cartItems)
+
     function toggleFavorite(id){
         const updatePhotos = allPhotos.map(photo => {
             if(photo.id === id){
@@ -31,12 +39,8 @@ function  ContextProvider({children}){
         setAllPhotos(updatePhotos);
     }
 
-    function checkCartItem(id){
-        return cartItems.some((img) => img.id == id);
-    }
-
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addCartItem, checkCartItem}}>
+        <Context.Provider value={{allPhotos, cartItems, toggleFavorite, addCartItem, removeCartItem}}>
             {children}
         </Context.Provider>
     )

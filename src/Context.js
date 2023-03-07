@@ -31,8 +31,12 @@ function  ContextProvider({children}){
         setAllPhotos(updatePhotos);
     }
 
+    function checkCartItem(id){
+        return cartItems.some((img) => img.id == id);
+    }
+
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addCartItem}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addCartItem, checkCartItem}}>
             {children}
         </Context.Provider>
     )
